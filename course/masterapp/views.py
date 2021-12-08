@@ -11,19 +11,22 @@ def base(request):
     return render(request, 'masterapp/base.html', {'menu': menu, 'title': 'информация к изучению...'})
 
 def auth_page(request):
-    if request.method == 'POST':
-        username = request.POST.get('user')
-        password = request.POST.get('pass')
-        
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            return redirect('base')
-        else:
-            messages.info(request, 'Нам не известен такой человек')
+    if request.user.is_authenticated:
+        return redirect('base')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('user')
+            password = request.POST.get('pass')
+            
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('base')
+            else:
+                messages.info(request, 'Нам не известен такой человек')
     
-    return render(request, 'masterapp/auth_page.html')
+        return render(request, 'masterapp/auth_page.html')
 
 def logout_user(request):
     logout(request)
