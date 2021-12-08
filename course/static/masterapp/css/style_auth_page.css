@@ -5,6 +5,13 @@
 *{
 	font-family: 'Open Sans', 'sans-serif', 'FontAwesome';
 }
+/* notification of incorrect logins */
+.message {
+	position: relative;
+	margin: 10px auto;
+}
+/* END notification of incorrect logins */
+
 body{
     background: rgb(52, 56, 61);
 }
