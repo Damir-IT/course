@@ -8,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link type="text/css" href="{% static 'masterapp/css/style_base.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'masterapp/css/style_money_intelligence.css' %}" rel="stylesheet" />
     <!-- адаптив -->
     <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
     <div class="wrapper">
-        <!-- Контент -->
+        <!-- блок меню -->
         {% block mainmenu %}
         <header class="header">
             <div class="container">
@@ -28,7 +29,7 @@
                     <nav class="header_menu">
                         <ul class="header_list">
                             {% for m in menu %}
-                            <li>{{m}}</li>
+                            <li><a href="{% url 'money_intelligence' %}">{{m}}</a></li>
                             {% endfor %}
                         </ul>
                     </nav>
@@ -36,6 +37,7 @@
             </div>
         </header>
         {% endblock mainmenu %}
+        <!-- Блок контента -->
         {% block content %}
         <div class="content">
             <div class="container">
@@ -74,13 +76,20 @@
                         Earum minus nam asperiores veniam! Eius, quas tenetur!Lorem ipsum dolor sit amet consectetur
                         adipisicing elit. Quod nam quisquam quasi, eius beatae recusandae, amet dolores tempore, in a
                         consequatur enim. Earum minus nam asperiores veniam! Eius, quas tenetur!</p>
+                        <br>
+                        <p>Теперь, когда вы прочли пояснение к курсу. Можете приступать к обучению</p>
+                    </div>
+                    <div class="btn_container">
+                        <div class="text-box">
+                            <a href="{% url 'money_intelligence' %}" class="btn btn-white btn-animate">Начать!</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endblock %}
-    </div>
-
-    <!-- Подкдючаем jQuery -->
+                {% endblock %}
+            </div>
+            
+            <!-- Подкдючаем jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <!-- Подкдючаем файл JS скриптов -->
     <script src="{% static 'masterapp/js/base_script.js' %}"></script>

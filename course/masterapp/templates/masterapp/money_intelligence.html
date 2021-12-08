@@ -1,0 +1,26 @@
+{% extends 'masterapp/base.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+    <div class="container">
+        {% for lable in list_lable %}
+        <div class="container_course">
+            <a class="course_link" href="{% url 'course_page' lable.pk %}">
+                <div class="content_course">
+                <div class="course_category">
+                    <p>{{lable.category}}</p>
+                    <p>{{lable.name}}</p>
+                </div>
+                <div class="course_image">
+                        <img src='{% static "masterapp/images/money_money.png" %}' alt="">
+                    </div>
+                    <div class="course_btn">
+                        <p>Жми!</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

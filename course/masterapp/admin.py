@@ -1,5 +1,5 @@
 from django.contrib import admin
-from masterapp.models import Category, FinanceCourse, BasePageInfo
+from masterapp.models import Category, FinanceCourse, BasePageInfo, FinanceCourseLable
 
 @admin.register(Category)
 class AdminCategory(admin.ModelAdmin):
@@ -7,6 +7,10 @@ class AdminCategory(admin.ModelAdmin):
 
 @admin.register(FinanceCourse)
 class AdminFinanceCourse(admin.ModelAdmin):
+   pass
+
+@admin.register(FinanceCourseLable)
+class AdminFinanceCourseLable(admin.ModelAdmin):
    pass
 
 @admin.register(BasePageInfo)
