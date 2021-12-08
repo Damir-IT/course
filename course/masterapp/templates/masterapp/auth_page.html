@@ -9,13 +9,18 @@
 <body>
     <div id="wrapper">
     <p>случайных людей здесь нет...</p>
-	<form id="signin" method="" action="" autocomplete="off">
-		<input type="text" id="user" name="user" placeholder="логин" />
-		<input type="password" id="pass" name="pass" placeholder="пароль" />
-		<button type="submit">&#xf0da;</button>
-	</form>
+	<form id="signin" method="POST" action="" autocomplete="off">
+        {% csrf_token %} <!--для увеличения безопасности-->
+		<input tabindex="1" type="text" id="user" name="user" placeholder="логин" />  <!-- name стоит поменять на username-->
+		<input tabindex="2" type="password" id="pass" name="pass" placeholder="пароль" /> <!-- name стоит поменять на password-->
+		<button tabindex="3" type="submit">&#xf0da;</button>
+	</form> 
+    
 </div>
-  
-  
+    {% for message in messages %}   
+        
+        <p class='message'>{{message}}</p>
+    {% endfor %}
+
 </body>
 </html>
