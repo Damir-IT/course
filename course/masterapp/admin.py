@@ -1,6 +1,5 @@
 from django.contrib import admin
-from masterapp.models import Category, FinanceCourse, BasePageInfo, FinanceCourseLable
-
+from masterapp.models import Category, BasePageInfo, FinanceCourseLable, FinanceCourse
 @admin.register(Category)
 class AdminCategory(admin.ModelAdmin):
    pass

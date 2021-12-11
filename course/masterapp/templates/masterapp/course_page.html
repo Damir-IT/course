@@ -1,4 +1,73 @@
 {% extends 'masterapp/base.html' %}
+{% load static %}
 {% block content %}
-<h1>привед медвед!</h1>
+<div class="container">
+    <div class="content">
+        <div class="course">
+            <div class="title">
+                <h1>{{ content.day_number }}</h1>
+            </div>
+            <div class="exercise_extra">
+                <h3>{{ content.title_exercise_extra }}</h3>
+                <p>Помимо основных заданий для каждого дня, мы также будем выполнять дополнительное <span>extra</span>
+                    упражнение, которое поможет нам перестать бояться больших сумм, понять, что мы достойны любых покупок и
+                    начать
+                    визуализировать свои <span>глобальные</span> мечты.</p>
+                <p>В <span>extra</span> задании Я каждый день буду называть Вам сумму денег, Ваша задача будет состоять в
+                    том, что бы подумать какие вещи Вы хотите купить и найти изображения этих вещей в интернете. Общая
+                    стоимость
+                    вещей на этих изображениях должна быть примерно равна той сумме денег которую я буду задавать в каждом
+                    <span>extra</span> задании.</p>
+                <div class="extra_sum_block">
+                    <p class="extra_sum">{{ content.exercise_extra }}</p>
+                </div>
+                <p>Пошаговая инструкция выполнения такого задания:</p>
+                <ul class="list_extra">
+                    <li>Составить список вещей на сумму которую я назову</li>
+                    <li>Находите картинки с вещами из вашего списка</li>
+                    <li>Смотрите на картинки по очереди и представляете как вы покупаете эти вещи</li>
+                    <li>Записываете в блокнот ощущения которые у вас при этом возникают</li>
+                    <li>Если вам психологически что-то мешает, опишите это.</li>
+                </ul>
+                <p id=story>Если во время выполнения <span>extra</span> задания Вам в голову пришла интересная история Вы можете
+                    поделиться ею в форме ниже и я опубликую ее в блоге ( это по вашему желанию )</p>
+                <form class="first_form">
+                    <textarea rows="4" cols="50" name="subject" placeholder="Свою историю писать сюда:" class="message" required></textarea>
+                    <input name="submit" class="btn" type="submit" value="Отправить" />
+                </form>
+                <br>
+                <h3>{{ content.title_exercise_1 }}</h3>
+                <p>{{ content.exercise_1 }}</p>
+                <br>
+                <h3>{{ content.title_exercise_2 }}</h3>
+                <p>{{ content.exercise_2 }}</p>
+                <br>
+                <h3>{{ content.title_audio_file }}</h3>
+                <p>{{ content.description_audio_file }}</p>
+                <p>Как правильно медитировать, смотреть <a download="" href="https://drive.google.com/file/d/1ocx_bxIFFpQ1oA-7h6TrHUEm5SqcPvef/view?usp=sharing">здесь</a></p>
+                <div class="audio_file">
+                    <audio controls>
+                        <source src="{{ content.audio_file.url }}" type="audio/mpeg">
+                    </audio>
+                    <p> Если проигрыватель не работает скачайте <a download href="{{ content.audio_file.url }}">медитацию</a></p>
+                </div>
+                <br>
+                <br>
+                <h3>бонусы</h3>
+                <br>
+                <h3>{{ content.title_image }}</h3>
+                <p>{{ content.description_image }}
+                </p><a download href="{{ content.image.url }}">
+                <img src="{{ content.image.url }}" alt="9 законов успеха в жизни" style="width: 280px; height: 200px;">
+                </a>
+                <br>
+                <h3>{{ content.title_check_list }}</h3>
+                <p>{{ content.description_check_list }}</p>
+                <p>Нажмите <a download href="{{ content.check_list.url }}">СЮДА</a> и вы скачаете ЧекЛист</p>
+                <br>
+            </div>
+
+        </div>
+    </div>
+</div>    
 {% endblock %}

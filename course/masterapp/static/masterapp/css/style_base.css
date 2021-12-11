@@ -48,7 +48,7 @@ html,body {
 /* стили для меню-шапки */
 .container {
     max-width: 1180px;
-    margin: 0px auto;
+    margin: 20px auto;
     padding: 0px 10px;
 }
 .header {
@@ -264,5 +264,4 @@ html,body {
     .content {
         padding: 40px 0px 0px 0px;
     }
-}
-
+}}
